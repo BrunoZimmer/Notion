@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Therapy</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d6d50a35-da63-4ae2-89fe-92f4c160abcd" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/woodcuts_sekka_1.jpg" style="object-position:center 9.999999999999998%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🧽</span></div><h1 class="page-title">Therapy</h1></header><div class="page-body"><h2 id="c7e71909-05aa-458f-8cc9-e7f4b00bdbaf" class="">Aline</h2><ul id="94fabe9f-b44b-4493-b071-aa750d23b875" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu por muito tempo achei que eu não podia te pedir em namoro porque eu ia tá patrocinando algo que eu não queria em ti. Faz muito pouco tempo que eu percebi que eu não te pedi em namoro pq eu não consigo tomar decisões importantes, eu tenho MT dificuldade com isso e eu achava q n tivesse. Desculpa por deixar aconteceu oqye aconteceu, eu permiti algumas coisas na minha vida acontecerem por causa dessa indecisão que só pioraram tudo</span></li></ul><ul id="0f50345d-ab99-49e5-a1c1-a84bc18658cc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu não gosto quando tu fala nunca e começo a sentir o peso do que eu te falei, mesmo sendo situações diferentes </span></li></ul><ul id="fad6585b-611c-4c23-ac12-a422fa08e5ff" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu quero te ter por perto pra sempre, mesmo que seja como amiga, eu preciso evoluir contigo pq tu é um norte pra mim</span></li></ul><ul id="ac6cd3d9-abcf-4444-aa2b-96257f0727a5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu entendo tudo o que tu fala, eu tô numa fase horrível, eu acho que nossa vibe é muito boa, eu nunca senti isso com ninguém, mas eu sei que eu não sou uma boa pessoa pra conviver e mesmo tu achando que eu não vá mudar eu acredito que vou sim pq são características que eu não gosto em mim, só pertencem muito a min mesmo. eu te disse que não dá certo quando uma pessoa não tá bem, eu queria que tivesse alguem do meu lado, mas eu entendo que isso te faz muito mal e como eu sempre digo eu não quero te ver mal, então eu entendo perfeitamente tu querer n ter mais nada comigo ... Eu também não quero mais te ver mal por minha causa </span></li></ul><ul id="0bf81d8d-48d7-4c0b-bf2c-8f63e337ebff" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu sei que tu quer ter outras experiências, eu sei que tu quer conhecer outros homens pq tu acha que não é todo homem assim que briga tanto no relacionamento e tals, eu acho que tu vai encontrar, isso é um problema que eu tive contigo bastante. </span></li></ul><ul id="23b38547-c30f-4140-9c0f-5bae99b16465" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Oque me deixa MT chateado é q eu tava mt feliz na AIESEC, MT festa, mts amigos e um dia eu parei no AP e disse q eu tinha q parar um pouco com aquilo pq tu tava mal e eu n tava te ajudando, eu parei de fazer mt coisa atr sair da AIESEC e um dos motivos foi pra te ajudar, tanto que me lembro w fiquei mó feliz no teu niver que tu disse q tinha gente cnth em poa, mesmo dando tudo errado o que eu tinhs planejado de fazer. E quando eu tava mal tu mandou eu parar de falar CTG pq tu tava ficando mal falando CMG q tava mal kkkk E uma questão de amizade ajudar os outros na fase difícil mesmo q isso vá te sacrificar </span></li></ul><ul id="a4174e2c-740f-49d1-babe-b25571bec251" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"></span></li></ul><p id="028620f1-f5a7-45f4-bea4-438d268a46e3" class="">
+</p><p id="0ca6a54a-c432-47bb-a4a7-7e63569c4bfb" class="">
+</p><p id="dd7f9f60-3227-4640-9ce0-803e8c1325a1" class="">
+</p><h2 id="aeed9323-aa4d-4b83-82f6-330152bcc61e" class="">Exercicios</h2><ul id="0c556d2d-0f48-4792-b3da-4e0cd0e9afbb" class="bulleted-list"><li style="list-style-type:disc">Que mensagens eu passo pras pessoas que faz com que elas sintam a vontade pra fazer essas brincadeiras cmg?</li></ul><ul id="ba45c475-7053-4b2f-a91a-16ee9e1f752d" class="bulleted-list"><li style="list-style-type:disc">psicologia do comportamento do consumidor</li></ul><p id="6a289bf6-547c-4321-99dd-5e9b18b5c48b" class="">
+</p><h2 id="dcbaeb90-1ae6-42d3-8f5c-fd776535f7fd" class="">Pontos a abordar</h2><ul id="789b72dd-6808-47f9-a462-7a756a3e8f39" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu odeio que alguem fique me observando porque na minha casa eu não consigo fazer nada em paz, dai quando tem alguem me controlando eu ja acho q é igual aos meus pais e me sinto muito mal. 
+Por exemplo, se a guria que eu ficava me perguntava onde eu ia, ou oque eu ia fazer eu não gostava de responder pq eu sentia que era só pra me controlar e fazer fofoca de mim(que é oq meus pais fazem) mas as vezes ela só queria saber por saber.</span></li></ul><ul id="d325045f-ba2e-4728-89b0-fae8bee7e4bc" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Segunda feira passada eu entrei na aula de frances e a professor falou assim &quot;chegou o terceiro dos tres mosqueteiros&quot;(porque tem 3 guris mais ou menos da minha idade na aula), e dai um deles falou &quot;não, o bruno não&quot; brincando eu acho. 
+Dai eu fechei a camera e comecei a chorar, n consegui ficar bem o resto da aula. 
+Eu sempre fico mal quando alguem me exclui dos bag e eu sinto q todo mundo me exclui, no colégio meus colegas do colégio ficavam me chamando de &quot;escroto&quot; e zuando cmg sempre, até eu me afastar deles, na facul ninguem da moral quando eu falo algo, parece q eu sou o unico burro e dai na aula de frances tambem aconteceu isso e eu fiquei chateado.
+Eu sinto que todo mundo me exclui e eu não entendo oque eu faço de tão ruim.</span></li></ul><ul id="9a64f94f-7921-4264-92b0-3e2b72b5928d" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Um colega meu começou a falar num grupo &quot;ah, a ufscpa não vai ter tres meses de ferias&quot; e eu fui questionar ele quanto tempo ela tinha, dai ele disse q não sabia e ficou bolado cmg por eu &quot;pegar ele na mentira&quot; e ser o chato q fica forçando até  o cara dizer a vdd</span></li></ul><ul id="2738d798-e36a-45fa-b1d1-05e60a4d7ab1" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">eu to tentando estudar um pouco de pé pra não ficar sentado o dia inteiro</span></li></ul><ul id="16d761b9-a60b-4c75-8f62-1a9d23b6a153" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">se eu me isolar de tudo melhora?</span></li></ul><ul id="6bf40602-9860-4a52-bd36-585c84d4e59e" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Eu parei de falar com a pessoa q eu considerava a mais importante da minha vida porque eu sentia q eu só fazia mal pra ela e eu realmente tava cada vez mais chato nos últimos tempos (ano), só que eu to mal, eu nunca me senti tanto assim, eu sinto q eu n sei mais ser feliz, eu começo a chorar quando meu cachorro brinca cmg e eu me divirto um pouco. Eu sinto que a Aline foi MT escrota cmg pq ela me largou no meu pior momento, quando ela tava mal eu sempre tive lá pra ela, eu sentia q ela ficava mal na cidade nova sem conhecer ninguém e eu tentei fazer de tudo pra ela se sentir bem onde eu considerava minha casa, já ela n considerava, mas no final eu fui o ruim e fiquei sozinho.  Eu posso achar q ela errou em me largar nessa hora? Eu deveria correr mais atrás dela   ?</span></li></ul><ul id="45f40a1d-b1bd-456e-a0e7-32e9315c5589" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Eu sinto que a Aline me largou no pior momento da minha vida e eu acho mt ingratidão dela.</span></li></ul><ul id="3d08998f-6aca-4d1b-b01e-576102c1b6ba" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Eu tinha que apresentar um artigo hoje( 28/04 ) e eu vi errado a data porque tinha prova hoje que me consome a vida e eu não consigo pensar em outra coisa</span></li></ul><ul id="a6a64fe0-5b17-4dbe-918e-9914b12d262c" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Eu faço um monte de coisa das cadeiras e passo pra eles pronto, um monte de prova valendo 10 que eu faço sozinho e passo, mas quando eu peço ajuda ninguem ajuda, eles tão todos fazendo esse trabalho que ontem eu pedi no meio da tarde, hoje não falaram nada pra mim (que eu tinha pedido ontem e ninguem falou que tava fazendo) e tão la fazendo</span><figure id="46e992b1-12a9-4cf8-826c-1e502dbda70b" class="image"><a href="Therapy%2046e992b112a94cf8826c1e502dbda70b/Untitled.png"><img style="width:647px" src="Therapy%2046e992b112a94cf8826c1e502dbda70b/Untitled.png"/></a></figure></li></ul><figure id="54d72cf2-21f9-4c9c-ba0a-cde356762c4c" class="image"><a href="Therapy%2046e992b112a94cf8826c1e502dbda70b/Untitled%201.png"><img style="width:490px" src="Therapy%2046e992b112a94cf8826c1e502dbda70b/Untitled%201.png"/></a></figure><ul id="50e07b7f-b5c9-4973-862b-1ae6947961d0" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Eu comecei a usar  o tinder mas eu não consigo conversar com ninguém, acho que eu tneho ele só pra ver se alguem me aceitaria </span></li></ul><ul id="df9e0d48-ac64-4f36-8803-63865c2cb356" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">hoje domingo ( 02/05 ) um c olega meu começou a falar q n olhava minhas questões pq n entendia oq eu fazia, ok, dai outro pegou e falou &quot;é porque ninguem gosta de ti bruno&quot; e dai eu fiquei quieto e ele continuou falando, dai eu falei que eu nao gostava de quando ele falaa isso q eu ficava muito aml, dai a aline falou &quot;todo mundo sabe q ele ta fazendo na brincadeira&quot; e a aline é a pessoa que mais ficou bolada comigo por coisas que eu fiz sem querer magoar ela, so que quando não é com ela não é nada sabe</span></li></ul><ul id="39a034ca-f9b7-4227-881d-248022240295" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked"> Eu fui conversar com uma guria que eu conheço desde pequeno e que mora em santa maria (uma cidade a uns 150 km da minha cidade) e que eu quase não tenho contato com ela mas minha mãe era muito amiga da mãe dela(minha mãe tambem não ve muito essa mulher hoje em dia). 
+Dai eu fui falar de um dia que eu fui andar de bicicleta e me perdi e a guria falou que ja sabia sda história, depois eu fui contar pra outro parente meu e descobri também que minha mãe ja  tinha contado, ela consegue falar pra todo mundo que ela conhece tudo que eu faço</span></li></ul><ul id="accb66d1-9e8e-47d8-9a30-7587f4b20fbc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Hoje, domingo ( 01/05 ), meus pais me avisaram que eles ligaram pra uma industrai da minha cidade dizendo que eu queria trabalhar la e que eu tenho que ir la segunda pq se não vai ser a maior vergonha da vida deles eles terem feito isso por mim e eu não aceitar, só que eu nao pedi isso. 
+Eu falei &quot;acho que talvez eu precise de um estágio, se eu precisar voces podem falar com  o dono daquela empresa?&quot;, e eles falaram q sim, e perguntaram umas 4/5 vezes &quot;Bruno, tu quer que eu ligue?&quot; e eu respondi em todas, &quot;não liga ainda não&quot;. 
+Eles ignoraram e tão fazendo pressão em eu ir la.
+Eu não sei como eu reajo a essas situações porque eu não quero isso, mas eu não tenho q fazer isso porque eles querem? eu vou ta deixando eles tristes</span></li></ul><ul id="6cbecb8a-e302-4a15-829d-771afce92176" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu crítico de mais da pessoas, eu deveria não falar o que eu sinto ? Eu deveria esconder oq eu sinto por elasr?</span></li></ul><ul id="d29cd1b4-24c1-482c-8759-472d3337dd24" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">na minha casa eu não me sinto a vontade com ninguem, meus pais tão sempre  me criticando, me desmotivando das minhas coisa, acredito ser por isso que eu crio a &quot;casca&quot;, pra consrguir conviver em casa, mas isso faz com que eu esteja sempre explodindo</span></li></ul><ul id="6d953d92-75d6-4acb-a20a-02a98098b3d8" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Eu discuti com a  aline pq eu fuimuito grosso cm ela, só que ela mentiu na minha caraaaa</span></li></ul><ul id="f9d6d569-c001-4193-9238-3673e1502649" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Eu me dedico muito as pessoas pelo fato de que eu sinto que ninguem se dedica pra mim, por exemplo na sessã o da semana passada um cara tava me chamando pra fazer uma prova de uma cadeira que eu nem fiz ainda pq eu to sempre la pra ajudar ele</span></li></ul><ul id="e18e5fbd-44e7-4d11-a67b-09740b3a4f9b" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">eu gosto de conversarrrrr</span></li></ul><ul id="6748cb5b-0826-4da4-9b16-c9c4fe22d119" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">no podcast &quot;todo mundo gosta daquele momento que ta eu, meu café e minha formula 1&quot; &lt;3 kkkk</span></li></ul><ul id="c69c4a9f-d86d-4d48-a1d5-02a79f006e66" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">ele fala pra elencar pessoas que estariam no meio da noite pra me  ajudar e é engraçado, porque eu acho a aline a pessoa mais proxima de mim, mas eu não sei se ela faria isso</span></li></ul><ul id="b2adc222-3839-439c-857f-493e39ad5cc3" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">sempre  tem pessoas que são queridas e te ajudam mas como as pessoas que não sao queridas e ajudam ficam?  Eu vejo todas com uma roda de pessoas proximas, se isso é uma &quot;regra&quot;, como se aplica a todos?</span></li></ul><ul id="76703208-975c-4c57-a8fb-3b223e9b83b4" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">A abelha faz os favos hexagonais, símbolo mais energética mente econômico pela matemática, seleção natural medicina, método de hierarquia funcionando em uma comunidade psicologia</span></li></ul><ul id="fb802ff0-99a2-403c-bdd3-850871616048" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Só perguntei aquilo porque eu acho que estou aqui pra aprender </span></li></ul><ul id="81205406-d019-49cc-bc34-821534900fa5" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">,Como tu não se apaixona pelas pessoas ?</span></li></ul><p id="1c6e7c4f-2e50-4305-a55e-e8aa3bf2ac2b" class="">
+</p><hr id="5becf3aa-5283-41ae-8001-ac4342525c72"/><p id="e2bd2022-f348-4999-9224-cf41a5d162b0" class="">
+</p><ul id="22219461-98bf-4cb2-8c8a-b93b23d82907" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Meus pais me chamram pra me dar uma bronca de como eles tao &quot;apoiando&quot; (financiando) minha viagem e como eu não faço nada, que eu tenho que fazer lista do que tenho que levar e requerir documentos e eu não faço nada, tirando o fato de que meu pai ele é mt preucupado com oque eu como (ele manda eu comer toda hora que ele acha que eu tenho que comer) acha que eu vou passar fome na frança porque eu não gosto de pão e la eles comem mt pao</span></li></ul><ul id="a818ad07-986b-43a4-81e9-2ea5f75f6ff3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">acordei com minha mãe falando &quot;tenho 30 reais a ver em tão loja de esportes e é pra ti comprar uma calça la&quot;</span></li></ul><ul id="67f50694-cabb-43c9-bced-de346b33882b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu conversei direito com minha mae na quarta feira, na quinta ela ja chegou em mim perguntando sobre toda minha vida exatamente como eu deixo claro q n gosto, opr isso eu digo que dou a mão e ela quer o braço</span></li></ul><ul id="b0807fad-15e2-48ad-a0fb-bd7c2f8d261d" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">Hoje eu vi um coisa de namoradinhos da eletrica, pra dar recados anonimos, e perguntaram se a aline tava solteira, eu to sem falar com ela mas fiquei mt mal vendo aquilo por saber que ela ta solteira pq eu sou idiota, dai eu mandei pra ela e ela repsondeu la *pra toda a eletrica * sim eu estou quem quer? 
+Eu fiquei mt mal, eu to mal s o de lembrar, como eu consegui fazer isso</span></li></ul><ul id="fe9383dc-75ef-4538-b99a-6bfae83af2c7" class="to-do-list"><li><div class="checkbox checkbox-on"></div> <span class="to-do-children-checked">4/Sexta-feira, voltamos a saga &quot;não consigo fazer  nada porque fico pensando na aline e vou para o jogo&quot;</span></li></ul><ul id="2bf1028f-0ae4-45e9-b83e-50b6864be503" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu acho engraçado q eu fico muito mal por não falar com a Aline, sempre me dediquei a Aline, mas hoje eu vim no AP de porto e tudo me lembra a desa</span></li></ul><p id="f7be2d96-5af8-4114-8381-e0262cf2c05f" class="">
+</p><p id="19950856-f145-4e03-a985-22ddbac7766b" class="">síndrome de asperger</p><p id="71d80ff9-fd65-4fa4-bc3a-90d3703b0552" class="">
+</p><p id="c3471f4a-1ee6-4e75-89f9-869ee4879391" class="">as loucuras precisam ser do mesmo nivel pra se apaixonarem</p><p id="b043662d-99bf-420e-a132-b818e88be890" class="">
+</p><ul id="6f276d49-b4a5-4449-b1fa-bccc131e63a1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu vim pra porto, sai com meu amigo e to sozinho de novo, parece q n tenho ninguem sempre</span></li></ul><ul id="d255c756-004b-4137-a33b-978f724ba434" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">eu ando me perguntando oque eu quero fazer, eu sempre tive problema em saber oque eu quero fazer e oque eu aderi a partir dos meus pais que eu quero saber </span></li></ul><ul id="d7a47033-9ce0-45f0-9ed4-3de4917a437a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu não sei como acabar uma briga as vezes parece, hoje discuti com uma colega, dormi, acordei e continuei discutindo sem motivo algum </span></li></ul><ul id="818b4b53-f515-4804-a0a4-88e2c54d417f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Eu sempre largo coisas indevidas em horas indevidas. Quando me sinto a vontade com alguém </span></li></ul><p id="310a9cb1-a0f6-4139-b13f-fc09207aebd3" class="">
+</p></div></article></body></html>
